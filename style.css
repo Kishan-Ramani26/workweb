@@ -1,0 +1,510 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "freight-big-pro";
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+.start-button{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #F5E41B;
+    position: absolute;
+    transition: all ease 0.5s;
+    z-index: 20;
+}
+.courser{
+    height: 1vw;
+    width: 1vw;
+    border: 1px solid gray;
+    border-radius: 50%;
+    background-color: transparent;
+    position: absolute;
+}
+
+.yellow-btn button{
+    padding: 1vw 2vw;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 0.5vw;
+    margin: 1vw 0;
+    color: black;
+    font-size: 1.5vw;
+    font-weight: 100;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all ease 0.3s;
+}
+.yellow-btn button::after{
+    content: "";
+    position: absolute;
+    height: 100%;    
+    width: 100%;
+    background-color: lightslategrey;
+    border-radius: 50%;
+    top:100%;
+    left:0%;    
+    z-index: -1;
+    /* transform: scaleY(0); */
+    transition: all ease 0.3s;
+}
+.yellow-btn button:hover{
+    color: white;
+    
+}
+.yellow-btn button:hover::after{
+    /* transform: scaleY(1); */
+    background-color: black;
+    top:0%;        
+    left: 0%;
+    border-radius: 0%;
+}
+
+.loader {
+    height: 100vh;
+    width: 100%;
+    color: white;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* display: none; */
+}
+
+.loader .yellow1 {
+    height: 100%;
+    width: 100%;
+    background-color: #F5E41B;
+    position: absolute;
+    z-index: 8;
+}
+
+.loader h1 {
+    font-size: 7vw;
+    font-weight: 100;
+    line-height: 5.08vw;
+    letter-spacing: -5px;
+    text-align: center;
+    z-index: 9;
+    position: relative;
+}
+
+.loader video {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    z-index: 6;
+}
+
+.loader .yellow2 {
+    height: 100%;
+    width: 100%;
+    background-color: #F5E41B;
+    position: absolute;
+    z-index: 7;
+}
+
+.page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #F5E41B;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.page1-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.page1 h1 {
+    font-size: 7vw;
+    font-weight: 100;
+    line-height: 5.08vw;
+    letter-spacing: -5px;
+    text-align: center;
+
+}
+
+nav {
+    width: 100%;
+    height: 4vw;
+    padding: 4vw 5vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* position: absolute; */
+    z-index: 5;
+    position: fixed;
+}
+
+nav .nav1 h2 {
+    font-size: 1.8vw;
+    font-weight: 500;
+    overflow: hidden;
+}
+
+nav .nav1 h2 span {
+    display: inline-block;
+}
+
+nav .nav2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2vw;
+
+}
+
+nav .nav2 p {
+    font-size: 1.6vw;
+    font-weight: 100;
+    overflow: hidden;
+    opacity: 0;
+}
+
+.nav2 .icon i {
+    font-size: 1.6vw;
+    font-weight: 100;
+    cursor: pointer;
+
+}
+
+nav .nav2 p span {
+    display: inline-block;
+}
+
+/* page2 css */
+
+.page2 {
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+
+.page2 .elem {
+    width: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.page2 .elem h1 {
+    font-size: 5vw;
+    font-weight: 100;
+    font-family: "freight-big-pro";
+    text-transform: uppercase;
+    position: relative;
+    color: antiquewhite;
+    z-index: 9;
+    line-height: 4vw;
+    transition: all linear 0.5s;
+}
+
+.page2 .moving {
+    width: 100%;
+    background-color: #F5E41B;
+    white-space: nowrap;
+    position: absolute;
+    padding: 0.2vw 0.3vw;
+    top: 40%;
+    transform: scaleY(0);
+    transition: all ease 0.3s;
+    overflow: hidden;
+}
+
+.page2 .moving .moving-in {
+    white-space: nowrap;
+    display: inline-block;
+    animation-name: moving;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+.page2 .moving .moving-in h5 {
+    display: inline-block;
+    font-size: 0.9vw;
+    font-weight: 500;
+    font-family: gilroy;
+    margin-right: 0.5vw;
+    text-transform: uppercase;
+}
+
+@keyframes moving {
+    from {
+        transform: translateX(0%);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.elem:hover .moving {
+    transform: scaleY(1);
+}
+
+.elem:hover h1 {
+    font-style: italic;
+    color: black;
+}
+
+.moving .blur {
+    height: 100%;
+    width: 25%;
+    background-color: #F5E41B;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    border: none;
+    /* border-radius: 10%; */
+    box-shadow: 20px 10px 10px 40px #F5E41B;
+}
+
+/* page3 css */
+
+.page3 {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #fff;
+    padding: 5vw 10vw;
+}
+
+.page3 .container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: start;
+    gap: 1vw;
+}
+
+.container .col1,
+.col2,
+.col3 {
+    height: 100%;
+    width: 33%;
+    position: relative;
+    cursor: pointer;
+}
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    padding: 0 0.1vw;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 2;
+    opacity: 0;
+    transition: all ease 0.5s;
+}
+
+.overlay p {
+    font-size: 2vw;
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-family: freight-big-pro;
+    font-weight: 400;
+    opacity: 0;
+    transition: all ease 0.5s;
+    transition-delay: 0.3s;
+}
+
+.img-div {
+    overflow: hidden;
+    position: relative;
+
+}
+
+.col1 .img-div img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.img-div:hover img {
+    scale: 1.03;
+}
+
+.container .img-div:hover .overlay {
+    opacity: 1;
+}
+
+.container .img-div:hover .overlay p {
+    opacity: 1;
+}
+
+.col2 .img-div img {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.col3 .img-div img {
+    width: 100%;
+    height: 23vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+
+.img-div2 {
+    margin-top: 1vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.col1 .img-div2 img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.col2 .img-div2 img {
+    width: 100%;
+    height: 25vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.col3 .img-div2 img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.img-div2:hover img {
+    scale: 1.03;
+}
+
+.container .img-div2:hover .overlay {
+    opacity: 1;
+}
+
+.container .img-div2:hover .overlay p {
+    opacity: 1;
+}
+
+.img-div3 {
+    margin-top: 1vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.col1 .img-div3 img {
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+.col2 .img-div3 img{
+    width: 100%;
+    height: 27vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+.col3 .img-div3 img{
+    width: 100%;
+    height: 27vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.img-div3:hover img {
+    scale: 1.03;
+}
+
+.container .img-div3:hover .overlay {
+    opacity: 1;
+}
+
+.container .img-div3:hover .overlay p {
+    opacity: 1;
+}
+
+.img-div4{
+    margin-top: 1vw;
+    overflow: hidden;
+    position: relative;
+}
+
+.col1 .img-div4 img{
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.col2 .img-div4 img{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.col3 .img-div4 img{
+    width: 100%;
+    height: 30vw;
+    object-fit: cover;
+    object-position: center;
+    transition: all ease 0.5s;
+}
+
+.img-div4:hover img{
+    scale:1.03;
+}
+
+.img-div4:hover .overlay{
+    opacity: 1;
+}
+.img-div4:hover .overlay p{
+    opacity: 1;
+}
+
+.page3 .line{
+    height: 0.09vw;
+    width: 0%;
+    background-color: lightgrey;
+    margin-top: 1.5vw;        
+}
