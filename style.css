@@ -508,3 +508,11 @@ nav .nav2 p span {
     background-color: lightgrey;
     margin-top: 1.5vw;        
 }
+
+/* page4 css */
+
+.page4{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
